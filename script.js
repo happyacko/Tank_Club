@@ -79,17 +79,7 @@ function addToArmy(unit) {
   updateArmyList();
   renderUnits();
 }
-const li = document.createElement('li');
-li.innerHTML = `
-  <strong>${unit.Name}</strong> (${unit.Points} pts)<br>
-  <em>Nation:</em> ${unit.Nation}<br>
-  <em>Move:</em> ${unit.Move}, <em>Aim:</em> ${unit.Aim}, <em>Shoot:</em> ${unit.Shoot}, <em>Speed:</em> ${unit.Speed}<br>
-  <em>Armour — Front:</em> ${unit.Front}, <em>Side:</em> ${unit.Side}, <em>Rear:</em> ${unit.Rear}<br>
-  <em>Special:</em> ${unit.Special}<br>
-  <button class='add-to-army-button' onclick='addToArmy(${JSON.stringify(unit)})'>Add</button>
-`;
-ul.appendChild(li);
-}
+
 function removeFromArmy(index) {
   totalPoints -= parseInt(army[index].Points || 0);
   army.splice(index, 1);
@@ -163,19 +153,4 @@ function exportArmyPDF() {
   doc.setFontSize(14);
   doc.text(`Total Points: ${totalPoints}`, 10, y + 6);
   doc.save("army_list.pdf");
-}
-function toggleDarkMode() {
-  document.documentElement.classList.toggle("dark");
-}
-
-function renderUnitCard(unit) {
-  return `
-    <li class="p-4 border rounded shadow-md bg-gray-50 dark:bg-gray-700">
-      <h3 class="text-lg font-bold">${unit.Name}</h3>
-      <p><strong>Nation:</strong> ${unit.Nation}</p>
-      <p><strong>Weapons:</strong> ${unit.Weapons}</p>
-      <p><strong>Armor:</strong> ${unit.Armor}</p>
-      <p><strong>Points:</strong> ${unit.Points}</p>
-      <button onclick="addToArmy('${unit.ID}')" class="mt-2 bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded">➕ Add</button>
-    </li>`;
 }
