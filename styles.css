@@ -2,8 +2,7 @@
 body.dark-mode {
   background-color: #111827;
   color: white;
-  /* styles.css */
-.add-to-army-button {
+  .add-to-army-button {
     background-color: #4CAF50; /* Green */
     color: white;
     padding: 8px 16px;
@@ -21,5 +20,4 @@ body.dark-mode {
 .add-to-army-button:active {
     background-color: #3e8e41; /* Even darker green when clicked */
 }
-  
-}
+  /* styles.css */
